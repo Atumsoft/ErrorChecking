@@ -11,7 +11,7 @@ import wx
 import wx.xrc
 
 ###########################################################################
-## Class MyFrame1
+## Class View
 ###########################################################################
 
 class View ( wx.Frame ):
@@ -36,9 +36,9 @@ class View ( wx.Frame ):
 		self.m_staticText2.Wrap( -1 )
 		fgSizer1.Add( self.m_staticText2, 0, wx.ALL|wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL, 5 )
 
-		self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, u"MyLabel", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText3.Wrap( -1 )
-		fgSizer1.Add( self.m_staticText3, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
+		self.lblError = wx.StaticText( self, wx.ID_ANY, u"MyLabel", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.lblError.Wrap( -1 )
+		fgSizer1.Add( self.lblError, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
 		self.btnStart = wx.Button( self, wx.ID_ANY, u"Start", wx.DefaultPosition, wx.DefaultSize, 0 )
 		fgSizer1.Add( self.btnStart, 0, wx.ALL|wx.EXPAND, 5 )
@@ -49,6 +49,8 @@ class View ( wx.Frame ):
 
 		self.SetSizer( fgSizer1 )
 		self.Layout()
+		self.timerScreenshot = wx.Timer()
+		self.timerScreenshot.SetOwner( self, wx.ID_ANY )
 
 		self.Centre( wx.BOTH )
 
